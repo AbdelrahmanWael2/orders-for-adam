@@ -1,15 +1,136 @@
 /* style.css */
 
 /* Set the background image */
-body, .background {
-    height: 100vh; /* Full screen height */
-    margin: 0; /* Remove any default margin */
+body {
+    height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('images/signin.jpg');    background-size: cover; /* Ensures the background covers the full screen */
-    background-position: center; /* Centers the background image */
+    background-size: cover; /* Ensure image covers the screen */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat;
 }
+
+/* Background for the Sign-In page */
+.signin-background {
+    background-image: url('images/signin.jpg'); /* Path to the sign-in image */
+}
+
+/* Background for the Dashboard page */
+/* Background styling */
+.dashboard-background {
+    background-image: url('images/dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+
+.title-container h1 {
+    margin: 0;  /* Remove margin from the title */
+    font-size: 2.5em;  /* Adjust font size if needed */
+    color: white;  /* Title text color */
+}
+
+
+
+.home-icon:hover {
+    color: #f0c674;
+}
+
+.material-icons {
+    font-size: 40px; /* Font size for Material Icon */
+}
+
+
+/* Title container styling */
+.title-container {
+    position: absolute;
+    top: 2%;  /* Adjust the top position */
+    left: 0;  /* Align the container to the left edge */
+    width: 100%;  /* Make the container take up the full width */
+    display: flex; /* Align icon and title horizontally */
+    justify-content: center; /* Center the title */
+    align-items: center; /* Vertically align icon and text */
+    padding: 20px 0;  /* Add top and bottom padding but remove side padding */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+}
+
+/* Home icon styling */
+.home-icon {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    left: 20px;  /* Position the home icon on the left edge */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    background-size: 60px;
+}
+
+/* Info icon styling */
+.info-icon {
+    color: white;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    background-size: 60px;
+    font-size: 40px;
+}
+
+
+/* Title styling */
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    margin: 0;
+    text-align: center;  /* Ensure title is centered */
+}
+
+
+
+/* Container styling */
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light semi-transparent white background */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
 
 /* Form styling */
 .form-container {

@@ -4,37 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts for fancy text -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to the Dashboard</h1>
-        
-        <h3>Table Number: {{ table_number }}</h3>
-        
-        <div class="table-status">
-            <h4>Table Status: 
-                {% if table_data['is_occupied'] %}
-                    Occupied
-                {% else %}
-                    Available
-                {% endif %}
-            </h4>
-        </div>
-
-        <div class="order-status">
-            <h4>Order Status: 
-                {% if table_data['order_status'] == 'processing' %}
-                    Processing
-                {% elif table_data['order_status'] == 'delivered' %}
-                    Delivered
-                {% else %}
-                    Pending
-                {% endif %}
-            </h4>
-        </div>
-
-        <a href="{{ url_for('main.home') }}">Go Back to Home</a>
+<body class="dashboard-background">
+    <div class="title-container">
+        <!-- Home Icon Link -->
+        <a href="{{ url_for('main.home') }}" class="home-icon">
+            <span class="material-icons" style="font-size: 110%;">home</span>
+        </a>
+        <!-- Title -->
+        <h1 class="title">ADAM</h1>
+        <a href="#" class="info-icon">
+            <span class="material-icons" style="font-size: 110%;">info</span>  <!-- Info icon -->
+        </a>
     </div>
 </body>
 </html>
