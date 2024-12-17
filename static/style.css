@@ -1,0 +1,67 @@
+/* style.css */
+
+/* Set the background image */
+body, .background {
+    height: 100vh; /* Full screen height */
+    margin: 0; /* Remove any default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/signin.jpg');    background-size: cover; /* Ensures the background covers the full screen */
+    background-position: center; /* Centers the background image */
+}
+
+/* Form styling */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Black with transparency */
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    color: white;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+/* Input and button styling */
+.form-container input,
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Input field styling */
+.form-container input {
+    background-color: white;
+    color: black;
+}
+
+/* Button styling */
+.form-container button {
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #666;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 600px) {
+    .container {
+        width: 80%; /* Take 80% width of the screen on tablets */
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 60%; /* Take 60% width of the screen on desktop */
+    }
+}
