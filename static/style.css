@@ -30,6 +30,8 @@ body {
     align-items: center;
     font-family: Arial, sans-serif;
     position: relative;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
 }
 
 
@@ -63,6 +65,7 @@ body {
     text-align: center;
     background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
     backdrop-filter: blur(10px);
+    z-index: 100;
 }
 
 /* Home icon styling */
@@ -103,12 +106,13 @@ body {
 
 /* Container styling */
 .container {
-    margin-top: 20px;
+    margin-top: 35%;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Light semi-transparent white background */
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 80%;
 }
 
 .container h3 {
@@ -174,15 +178,161 @@ a:hover {
     background-color: #666;
 }
 
+
+/* Item container styling */
+.items-container {
+    width: 100%;
+    margin-top: 1100px;
+    position: relative;
+    align-content: center;
+}
+
+/* Individual item card styling */
+.item-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 3px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensures each item takes up full width */
+    margin-bottom: 20px; /* Space between items */
+}
+
+.item-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.item-card h4 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.item-card p {
+    font-size: 1em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.item-card span {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Quantity buttons (Plus & Minus) */
+.quantity-buttons {
+    position: relative;
+    bottom: 10px;
+    left:  10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Square buttons */
+.plus-button,
+.minus-button {
+    background-color: transparent;
+    border: 2px solid #444;
+    color: white;
+    font-size: 1.5em;
+    width: 40px;  /* Square size */
+    height: 40px; /* Square size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.plus-button {
+    background-color: rgb(92, 238, 92);
+}
+
+.plus-button:hover {
+    background-color: darkgreen;
+}
+
+.minus-button {
+    background-color: rgb(236, 43, 43);
+}
+
+.minus-button:hover {
+    background-color: darkred;
+}
+
+/* Floating Shopping Cart Button */
+.cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(33, 221, 33);
+    color: white;
+    padding: 15px;
+    border-radius: 70%;
+    font-size: 2em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 100; /* Ensures it stays on top of other content */
+}
+
+.cart-button:hover {
+    background-color: darkgreen;
+}
+
+.cart-button span {
+    pointer-events: none;
+}
+
+
+/* Pagination controls */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    color: #007BFF;
+}
+
+
 /* Media Query for larger screens */
 @media (min-width: 600px) {
     .container {
-        width: 80%; /* Take 80% width of the screen on tablets */
+        width: 90%; /* Take 80% width of the screen on tablets */
+    }
+    .item-card {
+        padding: 10px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 5px;
     }
 }
 
 @media (min-width: 768px) {
     .container {
-        width: 60%; /* Take 60% width of the screen on desktop */
+        width: 90%; /* Take 60% width of the screen on desktop */
+    }
+    .item-card {
+        padding: 10px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 5px;
     }
 }

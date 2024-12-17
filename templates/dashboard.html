@@ -11,16 +11,52 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="dashboard-background">
-    <div class="title-container">
-        <!-- Home Icon Link -->
-        <a href="{{ url_for('main.home') }}" class="home-icon">
-            <span class="material-icons" style="font-size: 110%;">home</span>
+    <div class="container">
+        <!-- Title and Icon section -->
+        <div class="title-container">
+            <a href="{{ url_for('main.home') }}" class="home-icon">
+                <span class="material-icons" style="font-size: 110%;">arrow_back</span>
+            </a>
+            <h1 class="title">ADAM</h1>
+            <a href="#" class="info-icon">
+                <span class="material-icons" style="font-size: 110%;">info</span>
+            </a>
+        </div>
+
+
+        <!-- Displaying Items -->
+        <div class="items-container">
+            {% for item in items %}
+                <div class="item-card">
+                    <!-- <img src="{{ item.image_url }}" alt="{{ item.name }}"> -->
+                    <h4>{{ item.name }}</h4>
+                    <p>{{ item.description }}</p>
+                    <span>${{ item.price }}</span>
+
+                    <!-- Plus and Minus Buttons -->
+                    <div class="quantity-buttons">
+                        <button class="plus-button">+</button>
+                        <button class="minus-button">-</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Shopping Cart Floating Button -->
+        <a href="#" class="cart-button">
+            <span class="material-icons" style="font-size: 40px;">shopping_cart</span>
         </a>
-        <!-- Title -->
-        <h1 class="title">ADAM</h1>
-        <a href="#" class="info-icon">
-            <span class="material-icons" style="font-size: 110%;">info</span>  <!-- Info icon -->
-        </a>
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="{{ url_for('main.dashboard', table_number=table_number, page=page-1) }}">Previous</a>
+            {% endif %}
+            <span>Page {{ page }} of {{ total_pages }}</span>
+            {% if page < total_pages %}
+                <a href="{{ url_for('main.dashboard', table_number=table_number, page=page+1) }}">Next</a>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>

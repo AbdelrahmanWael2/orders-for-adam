@@ -15,7 +15,7 @@
         {% if messages %}
             <ul>
                 {% for category, message in messages %}
-                    <li class="alert alert-{{ category }}">{{ message }}</li>
+                    <li class="alert alert-{{ category }}" style="color: red;font-size: 20px;">{{ message }}</li>
                 {% endfor %}
             </ul>
         {% endif %}

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .firebase import get_table_data  # Assuming you have a function to get table data
+from .firebase import *  # Assuming you have a function to get table data
 
 main_bp = Blueprint('main', __name__)
 
@@ -30,10 +30,20 @@ def submit():
 from flask import render_template
 from .firebase import get_table_data  # Assuming this is your function to get data
 
-@main_bp.route('/dashboard/<table_number>')
+@main_bp.route('/dashboard/<table_number>', methods=['GET'])
 def dashboard(table_number):
-    table_data = get_table_data(table_number)  # Fetch the data for the table
-    if table_data is None:
-        return render_template('error.html', message="Table not found")
-    return render_template('dashboard.html', table_number=table_number, table_data=table_data)
+    # Get current page from query parameters (default to 1)
+    page = request.args.get('page', 1, type=int)
+    
+    # Fetch items for the current page (10 items per page)
+    items_per_page = 10
+    items = get_items(page=page, per_page=items_per_page)  # Modify this function to fetch paginated data
 
+    # Fetch the table data (e.g., table status)
+    table_data = get_table_data(table_number)
+    
+    # Calculate total pages (assuming you have a total_items count)
+    total_items = len(items)  # Total number of items
+    total_pages = (total_items + items_per_page - 1) // items_per_page  # Round up division
+
+    return render_template('dashboard.html', table_number=table_number, table_data=table_data, items=items, page=page, total_pages=total_pages)
