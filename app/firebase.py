@@ -51,7 +51,6 @@ def add_sample_data():
 add_sample_data()
 
 
-
 # Example function to simulate fetching paginated items from a database with 12 items
 def get_items(page=1, per_page=10):
     items = [
@@ -68,8 +67,8 @@ def get_items(page=1, per_page=10):
         {'name': 'Item 11', 'description': 'Description 11', 'price': 110, 'image_url': 'path/to/image11.jpg'},
         {'name': 'Item 12', 'description': 'Description 12', 'price': 120, 'image_url': 'path/to/image12.jpg'}
     ]
-    
+
     # Return items for the current page, with 10 items per page
     start = (page - 1) * per_page
     end = start + per_page
-    return items[start:end]
+    return items[start:end], len(items)

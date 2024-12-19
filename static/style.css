@@ -24,7 +24,7 @@ body {
     background-size: cover;
     background-position: center;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,8 +54,7 @@ body {
 
 /* Title container styling */
 .title-container {
-    position: absolute;
-    top: 2%;  /* Adjust the top position */
+    position: relative;
     left: 0;  /* Align the container to the left edge */
     width: 100%;  /* Make the container take up the full width */
     display: flex; /* Align icon and title horizontally */
@@ -65,7 +64,7 @@ body {
     text-align: center;
     background: rgba(0, 0, 0, 0.5);  /* Semi-transparent background */
     backdrop-filter: blur(10px);
-    z-index: 100;
+    z-index: 1;
 }
 
 /* Home icon styling */
@@ -106,14 +105,14 @@ body {
 
 /* Container styling */
 .container {
-    margin-top: 35%;
+    margin-top: 50px; /* Adds a gap of 50px below the title container */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Light semi-transparent white background */
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 0;
 }
+
 
 .container h3 {
     margin: 0;
@@ -123,7 +122,6 @@ body {
 
 a {
     display: inline-block;
-    margin-top: 15px;
     color: #007BFF;
     text-decoration: none;
     font-weight: bold;
@@ -179,14 +177,17 @@ a:hover {
 }
 
 
-/* Item container styling */
+/* Items container styling */
 .items-container {
+    margin-top: 50px; /* Adjust the space between title and items container */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
-    margin-top: 1100px;
+    max-width: 1000px;
+    padding: 10px; /* Optional padding */
     position: relative;
-    align-content: center;
 }
-
 /* Individual item card styling */
 .item-card {
     background-color: rgba(255, 255, 255, 0.8);
@@ -196,6 +197,7 @@ a:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%; /* Ensures each item takes up full width */
     margin-bottom: 20px; /* Space between items */
+    position: relative;
 }
 
 .item-card img {
@@ -226,10 +228,11 @@ a:hover {
 /* Quantity buttons (Plus & Minus) */
 .quantity-buttons {
     position: relative;
-    bottom: 10px;
-    left:  10px;
+    height: 75px;
     display: flex;
     gap: 10px;
+    justify-content: center;
+    padding: 10px;
 }
 
 /* Square buttons */
@@ -239,13 +242,15 @@ a:hover {
     border: 2px solid #444;
     color: white;
     font-size: 1.5em;
-    width: 40px;  /* Square size */
+    width: 50px;  /* Square size */
     height: 40px; /* Square size */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-top: 15px;
     transition: background-color 0.3s ease;
+    border-radius: 20%;
 }
 
 .plus-button {
@@ -267,13 +272,13 @@ a:hover {
 /* Floating Shopping Cart Button */
 .cart-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 40px;
+    right: 40px;
     background-color: rgb(33, 221, 33);
     color: white;
     padding: 15px;
-    border-radius: 70%;
-    font-size: 2em;
+    border-radius: 10%;
+    font-size: 1em;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
     z-index: 100; /* Ensures it stays on top of other content */
@@ -293,14 +298,18 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 20px;
+
+    height: 100px;
+    flex-direction: column;
 }
 
 .pagination a {
     text-decoration: none;
-    color: #444;
+    color: #ffffff;
     font-weight: bold;
+    padding: 15px;
+    font-family: 'Dancing Script', cursive;
+    font-size: larger;
 }
 
 .pagination a:hover {

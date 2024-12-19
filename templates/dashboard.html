@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="dashboard-background">
-    <div class="container">
+    <!-- <div class="container"> -->
         <!-- Title and Icon section -->
         <div class="title-container">
             <a href="{{ url_for('main.home') }}" class="home-icon">
@@ -36,27 +36,30 @@
                     <!-- Plus and Minus Buttons -->
                     <div class="quantity-buttons">
                         <button class="plus-button">+</button>
+                        <span class="quantity-label" style="padding: 10px;">Quantity: <span class="quantity-number">0</span></span>
+
                         <button class="minus-button">-</button>
+
                     </div>
                 </div>
             {% endfor %}
         </div>
 
         <!-- Shopping Cart Floating Button -->
-        <a href="#" class="cart-button">
-            <span class="material-icons" style="font-size: 40px;">shopping_cart</span>
-        </a>
+        <button class="cart-button">Place Order</button>
+
 
         <!-- Pagination Controls -->
         <div class="pagination">
+            <span>Page {{ page }} of {{ total_pages }}</span>
             {% if page > 1 %}
                 <a href="{{ url_for('main.dashboard', table_number=table_number, page=page-1) }}">Previous</a>
             {% endif %}
-            <span>Page {{ page }} of {{ total_pages }}</span>
+            
             {% if page < total_pages %}
                 <a href="{{ url_for('main.dashboard', table_number=table_number, page=page+1) }}">Next</a>
             {% endif %}
         </div>
-    </div>
+    <!-- </div> -->
 </body>
 </html>

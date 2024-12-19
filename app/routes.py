@@ -34,16 +34,19 @@ from .firebase import get_table_data  # Assuming this is your function to get da
 def dashboard(table_number):
     # Get current page from query parameters (default to 1)
     page = request.args.get('page', 1, type=int)
-    
+
+    # Ensure that page is a valid positive number
+    if page < 1:
+        page = 1  
+
     # Fetch items for the current page (10 items per page)
-    items_per_page = 10
-    items = get_items(page=page, per_page=items_per_page)  # Modify this function to fetch paginated data
+    items_per_page = 4
+    items, total_items = get_items(page=page, per_page=items_per_page)
 
     # Fetch the table data (e.g., table status)
     table_data = get_table_data(table_number)
-    
-    # Calculate total pages (assuming you have a total_items count)
-    total_items = len(items)  # Total number of items
-    total_pages = (total_items + items_per_page - 1) // items_per_page  # Round up division
+
+    # Calculate total pages
+    total_pages = (total_items + items_per_page - 1) // items_per_page
 
     return render_template('dashboard.html', table_number=table_number, table_data=table_data, items=items, page=page, total_pages=total_pages)
